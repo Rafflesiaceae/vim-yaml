@@ -142,13 +142,6 @@ function GetYAMLIndent(lnum)
         " - List with
         "   multiline scalar
         return previndent+2
-    elseif prevline =~# s:mapkeyregex .. '\v\s*%(%(' .. s:c_ns_tag_property ..
-                \                              '\v|' .. s:c_ns_anchor_property ..
-                \                              '\v|' .. s:block_scalar_header ..
-                \                             '\v)%(\s+|\s*%(\#.*)?$))*'
-        " Mapping with: value
-        "     that is multiline scalar
-        return previndent+shiftwidth()
     endif
     return previndent
 endfunction
